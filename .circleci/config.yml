@@ -19,8 +19,8 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-      - run: echo $SERVER_OSSRH_USERNAME  && echo $SECRING_GPG_ASC_BASE64 
-      - run: echo $SECRING_GPG_ASC_BASE64 | base64 --decode | gpg --batch --no-tty --import --yes
+      - run: echo ${SERVER_OSSRH_USERNAME}
+      - run: echo ${SECRING_GPG_ASC_BASE64} | base64 --decode | gpg --batch --no-tty --import --yes
       - run: mvn -s .circleci/maven-release-settings.xml clean deploy -DdeployAtEnd=true -DperformRelease=true -DskipTests -Dspotbugs.skip=true
         
 commands:
