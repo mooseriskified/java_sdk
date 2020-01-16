@@ -81,8 +81,6 @@ public class RiskifiedClientTest {
         assertNull(parseResponse(RiskifiedOperation.SUBMIT, response, order.getId()));
     }
 
-
-
     @Ignore("need to align with server") @Test
     public void testCancelOrderAfterCreateWithNoValidation() throws RiskifiedError, IOException, FieldBadFormatException {
         riskifiedClient = new RiskifiedClient.RiskifiedClientBuilder(shopUrl, authKey, Environment.SANDBOX).setValidation(Validation.NONE).build();
