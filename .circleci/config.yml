@@ -19,6 +19,7 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+      - deploy
         
 commands:
   configure-gpg:
